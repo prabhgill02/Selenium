@@ -4,10 +4,11 @@ import mysql.connector
 app = Flask(__name__)
 
 # Database connection
+# Add your own connection details to connect to the database
 def get_db_connection():
     return mysql.connector.connect(
         user='root',
-        password='Prabh143#',
+        password='******',
         host='localhost',
         database='testing'
     )

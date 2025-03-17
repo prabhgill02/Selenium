@@ -13,19 +13,20 @@ driver.get('http://localhost:5000/login')
 username = driver.find_element(By.NAME, 'username')
 password = driver.find_element(By.NAME, 'password')
 
-username.send_keys('psingh')
-password.send_keys('testuser')
+username.send_keys('test_user')
+password.send_keys('user')
 driver.find_element(By.CSS_SELECTOR, "input[type='submit']").click()
 driver.quit()
 
 # Verify user data in the database
-db = mysql.connector.connect(user='root', password='Prabh143#', host='localhost', database='testing')
+# Update the connection as per your own details
+db = mysql.connector.connect(user='root', password='*****', host='localhost', database='testing')
 cursor = db.cursor()
-cursor.execute("SELECT * FROM users WHERE username = 'psingh'")
+cursor.execute("SELECT * FROM users WHERE username = 'test_user'")
 user_data = cursor.fetchone()
 print(user_data)
 
-assert user_data[1] == 'psingh'  # Verify the username in the database matches
+assert user_data[1] == 'test_user'  # Verify the username in the database matches
 db.close()
 #driver.quit()
 
